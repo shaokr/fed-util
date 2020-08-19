@@ -2,25 +2,20 @@
 # yarn lockfile v1
 
 
-"@types/lodash@^4.14.150":
+"@types/lodash@^4.14.159":
   version "4.14.159"
   resolved "http://npm.client.dev.myyixue.com/@types%2flodash/-/lodash-4.14.159.tgz#61089719dc6fdd9c5cb46efc827f2571d1517065"
   integrity sha1-YQiXGdxv3ZxctG78gn8lcdFRcGU=
-
-"@types/node@^14.0.27":
-  version "14.6.0"
-  resolved "http://npm.client.dev.myyixue.com/@types%2fnode/-/node-14.6.0.tgz#7d4411bf5157339337d7cff864d9ff45f177b499"
-  integrity sha1-fUQRv1FXM5M318/4ZNn/RfF3tJk=
 
 "@types/qs@^6.9.4":
   version "6.9.4"
   resolved "http://npm.client.dev.myyixue.com/@types%2fqs/-/qs-6.9.4.tgz#a59e851c1ba16c0513ea123830dd639a0a15cb6a"
   integrity sha1-pZ6FHBuhbAUT6hI4MN1jmgoVy2o=
 
-"@types/uuid@^8.0.1":
-  version "8.3.0"
-  resolved "http://npm.client.dev.myyixue.com/@types%2fuuid/-/uuid-8.3.0.tgz#215c231dff736d5ba92410e6d602050cce7e273f"
-  integrity sha1-IVwjHf9zbVupJBDm1gIFDM5+Jz8=
+lodash@^4.17.20:
+  version "4.17.20"
+  resolved "http://npm.client.dev.myyixue.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha1-tEqbYpe8tpjxxRo1RaKzs2jVnFI=
 
 qs@^6.9.4:
   version "6.9.4"
