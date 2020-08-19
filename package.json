@@ -1,20 +1,17 @@
 {
   "name": "fed-util",
   "productName": "前端util库",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "main": "dist/index.js",
   "scripts": {
     "r": "tsc && npm publish",
     "w": "webpack"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.150",
-    "@types/node": "^14.0.27",
-    "@types/qs": "^6.9.4",
-    "@types/uuid": "^8.0.1",
     "typescript": "^3.9.7"
   },
   "dependencies": {
+    "@types/qs": "^6.9.4",
     "qs": "^6.9.4"
   }
 }

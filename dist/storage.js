@@ -24,7 +24,7 @@ var Storage = /** @class */ (function () {
     // 获取
     Storage.prototype.get = function (key, G) {
         if (G === void 0) { G = false; }
-        return JSON.parse(this.storage.getItem(getKEY(key, G)) || "");
+        return JSON.parse(this.storage.getItem(getKEY(key, G)) || "null");
     };
     // 设置
     Storage.prototype.set = function (key, val, G) {

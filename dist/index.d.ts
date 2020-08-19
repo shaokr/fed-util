@@ -1,10 +1,12 @@
-/// <reference types="qs" />
-import monitor from "./monitor";
+import promiseClass from "./promise-class";
+import Monitor from "./monitor";
 import param from "./param";
-export { monitor, param };
+export { Monitor, param, promiseClass };
 declare const _default: {
     promiseClass: () => import("./promise-class").PromiseClass;
-    monitor: typeof monitor;
-    param: import("qs").ParsedQs;
+    Monitor: typeof Monitor;
+    param: {
+        [key: string]: any;
+    };
 };
 export default _default;

@@ -6,7 +6,7 @@ import qs from "qs";
 /**
  * 传入url可解析url中的参数
  */
-export const getParam = (url: string) => {
+export const getParam = (url: string): { [key: string]: any } => {
   let search = url.match(/\?([^#]+)/);
   if (search) {
     let _search = search[1];

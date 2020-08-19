@@ -20,7 +20,7 @@ class Storage {
   }
   // 获取
   get(key: string, G = false) {
-    return JSON.parse(this.storage.getItem(getKEY(key, G)) || "");
+    return JSON.parse(this.storage.getItem(getKEY(key, G)) || "null");
   }
   // 设置
   set(key: string, val: any, G = false) {

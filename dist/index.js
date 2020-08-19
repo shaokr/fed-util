@@ -1,10 +1,10 @@
 import promiseClass from "./promise-class";
-import monitor from "./monitor";
+import Monitor from "./monitor";
 import param from "./param";
-export { monitor, param };
+export { Monitor, param, promiseClass };
 export default {
     promiseClass: promiseClass,
-    monitor: monitor,
+    Monitor: Monitor,
     param: param,
 };
 //# sourceMappingURL=index.js.map
