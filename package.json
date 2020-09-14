@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "r": "tsc && npm publish",
+    "r": "tsc && npm version patch && npm publish",
     "w": "webpack"
   },
   "devDependencies": {
