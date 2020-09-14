@@ -1,7 +1,7 @@
 {
   "name": "fed-util",
   "productName": "前端util库",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "scripts": {
     "r": "tsc && npm version patch && npm publish",
