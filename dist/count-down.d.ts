@@ -25,9 +25,9 @@ export default class {
     private _onTick;
     private _onComplete;
     /**
-     * 是否开始计时
+     * 是否倒计时中
      */
-    get isStart(): boolean;
+    get isInTime(): boolean;
     constructor(props: Props);
     private _calculation;
     /**

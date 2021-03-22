@@ -24,9 +24,9 @@ var default_1 = /** @class */ (function () {
             this.start();
         }
     }
-    Object.defineProperty(default_1.prototype, "isStart", {
+    Object.defineProperty(default_1.prototype, "isInTime", {
         /**
-         * 是否开始计时
+         * 是否倒计时中
          */
         get: function () {
             return !!this._timeProxy.timeI;

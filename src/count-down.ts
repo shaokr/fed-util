@@ -27,9 +27,9 @@ export default class {
   private _onTick = new Monitor();
   private _onComplete = new Monitor();
   /**
-   * 是否开始计时
+   * 是否倒计时中
    */
-  get isStart() {
+  get isInTime() {
     return !!this._timeProxy.timeI;
   }
   constructor(props: Props) {
