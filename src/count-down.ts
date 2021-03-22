@@ -39,7 +39,7 @@ export default class {
       this.start();
     }
   }
-  private _calculation() {
+  private _calculation = () => {
     const { rate } = this.props;
     this._timeProxy.time -= rate;
     if (this._timeProxy.time < 0) this._timeProxy.time = 0;

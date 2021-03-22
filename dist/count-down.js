@@ -2,6 +2,7 @@ import _ from "lodash";
 import Monitor from "./monitor";
 var default_1 = /** @class */ (function () {
     function default_1(props) {
+        var _this = this;
         this.props = {
             duration: 60 * 1000,
             rate: 1000,
@@ -10,6 +11,18 @@ var default_1 = /** @class */ (function () {
         this._timeProxy = { time: 0, timeI: 0 };
         this._onTick = new Monitor();
         this._onComplete = new Monitor();
+        this._calculation = function () {
+            var rate = _this.props.rate;
+            _this._timeProxy.time -= rate;
+            if (_this._timeProxy.time < 0)
+                _this._timeProxy.time = 0;
+            var time = _this._timeProxy.time;
+            if (time === 0) {
+                _this.stop();
+                _this._onComplete.go(time);
+            }
+            _this._onTick.go(time);
+        };
         /**
          * 每次触发事件
          */
@@ -34,18 +47,6 @@ var default_1 = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    default_1.prototype._calculation = function () {
-        var rate = this.props.rate;
-        this._timeProxy.time -= rate;
-        if (this._timeProxy.time < 0)
-            this._timeProxy.time = 0;
-        var time = this._timeProxy.time;
-        if (time === 0) {
-            this.stop();
-            this._onComplete.go(time);
-        }
-        this._onTick.go(time);
-    };
     /**
      * 开始
      */
