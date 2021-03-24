@@ -5,7 +5,7 @@ interface Props {
      */
     duration?: number;
     /**
-     * 频率(ms)
+     * 频率(ms) 0 为正向无限计时
      * 默认: 1000
      */
     rate?: number;

@@ -1,10 +1,11 @@
 {
   "name": "fed-util",
   "productName": "前端util库",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "main": "dist/index.js",
   "scripts": {
-    "r": "tsc && npm version patch && npm publish",
+    "r": "yarn version --patch --no-git-tag-version && tsc && npm publish",
+    "r:test": "yarn version --prerelease --no-git-tag-version && tsc && npm publish",
     "w": "webpack"
   },
   "devDependencies": {

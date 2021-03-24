@@ -12,16 +12,21 @@ var default_1 = /** @class */ (function () {
         this._onTick = new Monitor();
         this._onComplete = new Monitor();
         this._calculation = function () {
-            var rate = _this.props.rate;
-            _this._timeProxy.time -= rate;
-            if (_this._timeProxy.time < 0)
-                _this._timeProxy.time = 0;
-            var time = _this._timeProxy.time;
-            if (time === 0) {
-                _this.stop();
-                _this._onComplete.go(time);
+            var _a = _this.props, rate = _a.rate, duration = _a.duration;
+            if (duration !== 0) {
+                _this._timeProxy.time -= rate;
+                if (_this._timeProxy.time < 0)
+                    _this._timeProxy.time = 0;
+                var time = _this._timeProxy.time;
+                if (time === 0) {
+                    _this.stop();
+                    _this._onComplete.go(time);
+                }
             }
-            _this._onTick.go(time);
+            else {
+                _this._timeProxy.time += rate;
+            }
+            _this._onTick.go(_this._timeProxy.time);
         };
         /**
          * 每次触发事件

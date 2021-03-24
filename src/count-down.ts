@@ -7,7 +7,7 @@ interface Props {
    */
   duration?: number;
   /**
-   * 频率(ms)
+   * 频率(ms) 0 为正向无限计时
    * 默认: 1000
    */
   rate?: number;
@@ -40,16 +40,20 @@ export default class {
     }
   }
   private _calculation = () => {
-    const { rate } = this.props;
-    this._timeProxy.time -= rate;
-    if (this._timeProxy.time < 0) this._timeProxy.time = 0;
-    const { time } = this._timeProxy;
-    if (time === 0) {
-      this.stop();
-      this._onComplete.go(time);
+    const { rate, duration } = this.props;
+    if (duration !== 0) {
+      this._timeProxy.time -= rate;
+      if (this._timeProxy.time < 0) this._timeProxy.time = 0;
+      const { time } = this._timeProxy;
+      if (time === 0) {
+        this.stop();
+        this._onComplete.go(time);
+      }
+    } else {
+      this._timeProxy.time += rate;
     }
-    this._onTick.go(time);
-  }
+    this._onTick.go(this._timeProxy.time);
+  };
   /**
    * 开始
    */
