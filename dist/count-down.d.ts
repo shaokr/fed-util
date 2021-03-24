@@ -28,7 +28,7 @@ export default class {
      * 是否倒计时中
      */
     get isInTime(): boolean;
-    constructor(props: Props);
+    constructor(props?: Props);
     private _calculation;
     /**
      * 开始

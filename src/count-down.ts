@@ -32,7 +32,7 @@ export default class {
   get isInTime() {
     return !!this._timeProxy.timeI;
   }
-  constructor(props: Props) {
+  constructor(props?: Props) {
     _.assign(this.props, props);
     this.reset();
     if (this.props.isAutoStart) {
