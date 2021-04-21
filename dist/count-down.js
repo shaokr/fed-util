@@ -1,8 +1,7 @@
 import _ from "lodash";
 import Monitor from "./monitor";
-var default_1 = /** @class */ (function () {
-    function default_1(props) {
-        var _this = this;
+export default class {
+    constructor(props) {
         this.props = {
             duration: 60 * 1000,
             rate: 1000,
@@ -11,22 +10,22 @@ var default_1 = /** @class */ (function () {
         this._timeProxy = { time: 0, timeI: 0 };
         this._onTick = new Monitor();
         this._onComplete = new Monitor();
-        this._calculation = function () {
-            var _a = _this.props, rate = _a.rate, duration = _a.duration;
+        this._calculation = () => {
+            const { rate, duration } = this.props;
             if (duration !== 0) {
-                _this._timeProxy.time -= rate;
-                if (_this._timeProxy.time < 0)
-                    _this._timeProxy.time = 0;
-                var time = _this._timeProxy.time;
+                this._timeProxy.time -= rate;
+                if (this._timeProxy.time < 0)
+                    this._timeProxy.time = 0;
+                const { time } = this._timeProxy;
                 if (time === 0) {
-                    _this.stop();
-                    _this._onComplete.go(time);
+                    this.stop();
+                    this._onComplete.go(time);
                 }
             }
             else {
-                _this._timeProxy.time += rate;
+                this._timeProxy.time += rate;
             }
-            _this._onTick.go(_this._timeProxy.time);
+            this._onTick.go(this._timeProxy.time);
         };
         /**
          * 每次触发事件
@@ -42,52 +41,46 @@ var default_1 = /** @class */ (function () {
             this.start();
         }
     }
-    Object.defineProperty(default_1.prototype, "isInTime", {
-        /**
-         * 是否倒计时中
-         */
-        get: function () {
-            return !!this._timeProxy.timeI;
-        },
-        enumerable: false,
-        configurable: true
-    });
+    /**
+     * 是否倒计时中
+     */
+    get isInTime() {
+        return !!this._timeProxy.timeI;
+    }
     /**
      * 开始
      */
-    default_1.prototype.start = function () {
-        var rate = this.props.rate;
+    start() {
+        const { rate } = this.props;
         this.stop();
         this._timeProxy.timeI = setInterval(this._calculation, rate);
         this._calculation();
-    };
+    }
     /**
      * 暂停
      */
-    default_1.prototype.stop = function () {
+    stop() {
         clearInterval(this._timeProxy.timeI);
         this._timeProxy.timeI = 0;
-    };
+    }
     /**
      * 终止
      */
-    default_1.prototype.abort = function () {
+    abort() {
         this.stop();
         this.reset();
-    };
+    }
     /**
      * 重置
      */
-    default_1.prototype.reset = function () {
+    reset() {
         this._timeProxy.time = this.props.duration;
-    };
+    }
     /**
      * 获取剩余时间
      */
-    default_1.prototype.getRemainingTime = function () {
+    getRemainingTime() {
         return this._timeProxy.time;
-    };
-    return default_1;
-}());
-export default default_1;
+    }
+}
 //# sourceMappingURL=count-down.js.map

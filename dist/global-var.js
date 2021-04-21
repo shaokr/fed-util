@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import fp from 'lodash/fp';
-export var get = function (key) {
+export const get = (key) => {
     try {
         if (window) {
             return fp.get(key, window);
@@ -12,7 +12,7 @@ export var get = function (key) {
         }
     }
 };
-export var set = function (key, val) {
+export const set = (key, val) => {
     try {
         if (window) {
             return _.set(window, key, val);
@@ -25,7 +25,7 @@ export var set = function (key, val) {
     }
 };
 export default {
-    get: get,
-    set: set,
+    get,
+    set,
 };
 //# sourceMappingURL=global-var.js.map

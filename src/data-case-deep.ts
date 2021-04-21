@@ -4,27 +4,39 @@ const KeyList = {
   /**
    * 驼峰
    */
-  camel: _.camelCase,
+  get camel() {
+    return _.camelCase;
+  },
   /**
    * 中划线
    */
-  kebab: _.kebabCase,
+  get kebab() {
+    return _.kebabCase;
+  },
   /**
    * 小写空格
    */
-  lower: _.lowerCase,
+  get lower() {
+    return _.lowerCase;
+  },
   /**
    * 下划线
    */
-  snake: _.snakeCase,
+  get snake() {
+    return _.snakeCase;
+  },
   /**
    *  首字母大写空格
    */
-  start: _.startCase,
+  get start() {
+    return _.startCase;
+  },
   /**
    * 全大写空格
    */
-  upper: _.upperCase,
+  get upper() {
+    return _.upperCase;
+  },
 };
 /**
  * 递归驼峰化处理数据

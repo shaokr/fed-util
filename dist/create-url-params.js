@@ -5,14 +5,13 @@ import qs from 'qs';
 /**
  * obj可以是字符串、数组、对象
  */
-function createUrl(obj, url) {
-    if (url === void 0) { url = false; }
-    var _data = qs.stringify(obj);
+function createUrl(obj, url = false) {
+    const _data = qs.stringify(obj);
     if (url !== false && typeof url === "string") {
-        var urlArr = url.split("#");
-        var _url = urlArr[0];
-        var i = _url.indexOf("?");
-        var _getParam = "?" + _data;
+        const urlArr = url.split("#");
+        let _url = urlArr[0];
+        const i = _url.indexOf("?");
+        let _getParam = `?${_data}`;
         if (~i) {
             if (i != _url.length - 1) {
                 _getParam += "&";

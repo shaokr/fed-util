@@ -2,27 +2,27 @@ declare const KeyList: {
     /**
      * 驼峰
      */
-    camel: (string?: string | undefined) => string;
+    readonly camel: (string?: string) => string;
     /**
      * 中划线
      */
-    kebab: (string?: string | undefined) => string;
+    readonly kebab: (string?: string) => string;
     /**
      * 小写空格
      */
-    lower: (string?: string | undefined) => string;
+    readonly lower: (string?: string) => string;
     /**
      * 下划线
      */
-    snake: (string?: string | undefined) => string;
+    readonly snake: (string?: string) => string;
     /**
      *  首字母大写空格
      */
-    start: (string?: string | undefined) => string;
+    readonly start: (string?: string) => string;
     /**
      * 全大写空格
      */
-    upper: (string?: string | undefined) => string;
+    readonly upper: (string?: string) => string;
 };
 /**
  * 递归驼峰化处理数据
