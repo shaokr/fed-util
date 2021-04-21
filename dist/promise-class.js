@@ -1,6 +1,6 @@
 export default (function () {
-    var _reject = function () { };
-    var _resolve = function () { };
+    var _reject;
+    var _resolve;
     var _promise = new Promise(function (resolve, reject) {
         _reject = reject;
         _resolve = resolve;
