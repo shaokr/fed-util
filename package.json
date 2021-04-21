@@ -1,7 +1,7 @@
 {
   "name": "fed-util",
   "productName": "前端util库",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "main": "dist/index.js",
   "scripts": {
     "r": "yarn version --patch --no-git-tag-version && tsc && npm publish",

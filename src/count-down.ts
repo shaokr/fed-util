@@ -59,6 +59,7 @@ export default class {
    */
   start() {
     const { rate } = this.props;
+    this.stop();
     this._timeProxy.timeI = setInterval(this._calculation, rate);
     this._calculation();
   }

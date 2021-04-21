@@ -57,6 +57,7 @@ var default_1 = /** @class */ (function () {
      */
     default_1.prototype.start = function () {
         var rate = this.props.rate;
+        this.stop();
         this._timeProxy.timeI = setInterval(this._calculation, rate);
         this._calculation();
     };
