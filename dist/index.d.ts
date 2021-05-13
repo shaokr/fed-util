@@ -16,7 +16,7 @@ declare const _default: {
     dataCaseDeep: (data: any, key?: "start" | "camel" | "kebab" | "lower" | "snake" | "upper", depth?: number) => any;
     globalVar: {
         get: (key: string) => any;
-        set: (key: string, val: any) => any;
+        set: (key: string, val: any) => void;
     };
     isFile: (params: any) => boolean;
     promiseOvertime: (promise: Promise<any>, time?: number, data?: any) => Promise<any>;

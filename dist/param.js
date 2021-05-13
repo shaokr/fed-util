@@ -8,19 +8,19 @@ import { get } from "./global-var";
 /**
  * 传入url可解析url中的参数
  */
-export const getParam = (url) => {
+export var getParam = function (url) {
     if (url) {
-        let search = url.match(/\?([^#]+)/);
+        var search = url.match(/\?([^#]+)/);
         if (search) {
-            let _search = search[1];
+            var _search = search[1];
             return qs.parse(_search);
         }
     }
     return {};
 };
 // 输出给外面的param处理
-const param = getParam((_a = get("location")) === null || _a === void 0 ? void 0 : _a.href);
-const _debug = param.debug || get("debug");
+var param = getParam((_a = get("location")) === null || _a === void 0 ? void 0 : _a.href);
+var _debug = param.debug || get("debug");
 if (typeof _debug !== "undefined") {
     param.debug = _debug;
 }

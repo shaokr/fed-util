@@ -1,6 +1,6 @@
 import _ from "lodash";
 import fp from "lodash/fp";
-const KeyList = {
+var KeyList = {
     /**
      * 驼峰
      */
@@ -44,17 +44,19 @@ const KeyList = {
  * @param depth
  * @returns
  */
-const dataCaseDeep = (data, key = "camel", depth = 99) => {
+var dataCaseDeep = function (data, key, depth) {
+    if (key === void 0) { key = "camel"; }
+    if (depth === void 0) { depth = 99; }
     if (depth <= 0) {
         return data;
     }
-    const dataCase = fp.get(key, KeyList);
+    var dataCase = fp.get(key, KeyList);
     if (fp.isArray(data)) {
-        return _.map(data, (item) => dataCaseDeep(item, key, depth - 1));
+        return _.map(data, function (item) { return dataCaseDeep(item, key, depth - 1); });
     }
     if (fp.isObject(data)) {
-        data = _.mapValues(data, (item) => dataCaseDeep(item, key, depth - 1));
-        return _.mapKeys(data, (item, key) => dataCase(key));
+        data = _.mapValues(data, function (item) { return dataCaseDeep(item, key, depth - 1); });
+        return _.mapKeys(data, function (item, key) { return dataCase(key); });
     }
     return data;
 };

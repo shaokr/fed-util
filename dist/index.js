@@ -11,13 +11,13 @@ import Monitor from "./monitor";
 import promiseClass from "./promise-class";
 export { CountDown, createUrlParams, dataCaseDeep, globalVar, isFile, promiseOvertime, Monitor, promiseClass, };
 export default {
-    CountDown,
-    createUrlParams,
-    dataCaseDeep,
-    globalVar,
-    isFile,
-    promiseOvertime,
-    Monitor,
-    promiseClass,
+    CountDown: CountDown,
+    createUrlParams: createUrlParams,
+    dataCaseDeep: dataCaseDeep,
+    globalVar: globalVar,
+    isFile: isFile,
+    promiseOvertime: promiseOvertime,
+    Monitor: Monitor,
+    promiseClass: promiseClass,
 };
 //# sourceMappingURL=index.js.map

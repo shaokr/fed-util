@@ -1,25 +1,25 @@
-import _ from 'lodash';
-import fp from 'lodash/fp';
+import _ from "lodash";
+import fp from "lodash/fp";
 
 export const get = (key: string) => {
   try {
     if (window) {
-      return fp.get(key, window);
+      return window[key];
     }
   } catch (e) {
     if (global) {
-      return fp.get(key, global);
+      return global[key];
     }
   }
 };
 export const set = (key: string, val: any) => {
   try {
     if (window) {
-      return _.set(window, key, val);
+      window[key] = val;
     }
   } catch (e) {
     if (global) {
-      return _.set(global, key, val);
+      global[key] = val;
     }
   }
 };

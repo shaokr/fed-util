@@ -1,14 +1,16 @@
 import _ from "lodash";
 import fp from "lodash/fp";
-const isBodyFilePrototype = (val) => fp.includes(Object.prototype.toString.call(val))([
-    "[object File]",
-    "[object Blob]",
-]);
+var isBodyFilePrototype = function (val) {
+    return fp.includes(Object.prototype.toString.call(val))([
+        "[object File]",
+        "[object Blob]",
+    ]);
+};
 // 判断参数类型是否含文件
-const isBodyFile = (params) => {
-    let result = false;
-    const twoforEachObj = [];
-    _.forEach(params, (val) => {
+var isBodyFile = function (params) {
+    var result = false;
+    var twoforEachObj = [];
+    _.forEach(params, function (val) {
         if (typeof val !== "undefined" && isBodyFilePrototype(val)) {
             result = true;
             return false;
@@ -18,7 +20,7 @@ const isBodyFile = (params) => {
         }
     });
     if (!result) {
-        _.forEach(twoforEachObj, (val) => {
+        _.forEach(twoforEachObj, function (val) {
             result = isBodyFile(val);
             return !result;
         });

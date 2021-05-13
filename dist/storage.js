@@ -1,54 +1,64 @@
 /**
  * h5 本地存储
  */
-const { localStorage, sessionStorage, location } = window;
-const KEY = location.pathname;
-const getKEY = (key, G) => (G ? key : `${KEY}${key}`);
-class Storage {
-    constructor(props) {
+var localStorage = window.localStorage, sessionStorage = window.sessionStorage, location = window.location;
+var KEY = location.pathname;
+var getKEY = function (key, G) { return (G ? key : "" + KEY + key); };
+var Storage = /** @class */ (function () {
+    function Storage(props) {
         this.storage = props;
     }
-    // 获取长度
-    get longth() {
-        let i = 0;
-        for (const key in this.storage) {
-            if (key.indexOf(KEY) === 0)
-                i++;
-        }
-        return i;
-    }
+    Object.defineProperty(Storage.prototype, "longth", {
+        // 获取长度
+        get: function () {
+            var i = 0;
+            for (var key in this.storage) {
+                if (key.indexOf(KEY) === 0)
+                    i++;
+            }
+            return i;
+        },
+        enumerable: false,
+        configurable: true
+    });
     // 获取
-    get(key, G = false) {
+    Storage.prototype.get = function (key, G) {
+        if (G === void 0) { G = false; }
         return JSON.parse(this.storage.getItem(getKEY(key, G)) || "null");
-    }
+    };
     // 设置
-    set(key, val, G = false) {
+    Storage.prototype.set = function (key, val, G) {
+        if (G === void 0) { G = false; }
         this.storage.setItem(getKEY(key, G), JSON.stringify(val));
-    }
+    };
     // 删除项
-    remove(key, G = false) {
+    Storage.prototype.remove = function (key, G) {
+        if (G === void 0) { G = false; }
         this.storage.removeItem(getKEY(key, G));
-    }
+    };
     // 清除全部
-    clear(G = false) {
+    Storage.prototype.clear = function (G) {
+        if (G === void 0) { G = false; }
         if (G) {
             this.storage.clear();
         }
         else {
-            for (const key in this.storage) {
+            for (var key in this.storage) {
                 if (key.indexOf(KEY) === 0)
                     this.remove(key.replace(KEY, ""));
             }
         }
-    }
-    has(key, G = false) {
+    };
+    Storage.prototype.has = function (key, G) {
+        if (G === void 0) { G = false; }
         return this.storage.hasOwnProperty(getKEY(key, G));
-    }
-}
-export const local = new Storage(localStorage);
-export const session = new Storage(sessionStorage);
+    };
+    return Storage;
+}());
+export var local = new Storage(localStorage);
+export var session = new Storage(sessionStorage);
 export default {
-    local,
-    session,
+    local: local,
+    session: session,
 };
 //# sourceMappingURL=storage.js.map

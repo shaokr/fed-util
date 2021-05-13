@@ -3,7 +3,7 @@
     "experimentalDecorators": true,
     "downlevelIteration": true,
     "module": "ESNext",
-    "target": "ES6",
+    "target": "ES5",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "lib": ["ES2015", "DOM"],

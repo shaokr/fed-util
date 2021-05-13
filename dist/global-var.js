@@ -1,31 +1,29 @@
-import _ from 'lodash';
-import fp from 'lodash/fp';
-export const get = (key) => {
+export var get = function (key) {
     try {
         if (window) {
-            return fp.get(key, window);
+            return window[key];
         }
     }
     catch (e) {
         if (global) {
-            return fp.get(key, global);
+            return global[key];
         }
     }
 };
-export const set = (key, val) => {
+export var set = function (key, val) {
     try {
         if (window) {
-            return _.set(window, key, val);
+            window[key] = val;
         }
     }
     catch (e) {
         if (global) {
-            return _.set(global, key, val);
+            global[key] = val;
         }
     }
 };
 export default {
-    get,
-    set,
+    get: get,
+    set: set,
 };
 //# sourceMappingURL=global-var.js.map
