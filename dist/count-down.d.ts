@@ -53,14 +53,14 @@ export default class {
     /**
      * 每次触发事件
      */
-    onTick: (fun?: any) => {
+    onTick: (fun: (data: any) => void) => {
         key: string;
         off: () => void;
     };
     /**
      * 完成
      */
-    onComplete: (fun?: any) => {
+    onComplete: (fun: (data: any) => void) => {
         key: string;
         off: () => void;
     };

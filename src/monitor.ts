@@ -3,22 +3,22 @@
  * Created by zombie on 2017/1/19.
  */
 let keyCount = 1;
-export default class Monitor {
-  list: any = {};
+export default class Monitor<T = any> {
+  list: { [key: string]: any } = {};
   // 注册
-  on = (fun: any = () => {}) => {
+  on = (fun: (data: T) => void) => {
     const key = `key-${keyCount++}-${+new Date()}`;
     this.list[key] = fun;
     return {
       key,
       off: () => {
         this.off(key);
-      }
+      },
     };
   };
   // 注册一次执行后关闭
-  once = (fn: any = () => {}) => {
-    const _id = this.on((res: any) => {
+  once = (fn: (data: T) => string) => {
+    const _id = this.on((res) => {
       _id.off();
       return fn(res);
     });

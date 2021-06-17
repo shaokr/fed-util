@@ -1,10 +1,12 @@
-export default class Monitor {
-    list: any;
-    on: (fun?: any) => {
+export default class Monitor<T = any> {
+    list: {
+        [key: string]: any;
+    };
+    on: (fun: (data: T) => void) => {
         key: string;
         off: () => void;
     };
-    once: (fn?: any) => {
+    once: (fn: (data: T) => string) => {
         key: string;
         off: () => void;
     };

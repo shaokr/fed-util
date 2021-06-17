@@ -29,19 +29,17 @@ var Monitor = /** @class */ (function () {
         this.list = {};
         // 注册
         this.on = function (fun) {
-            if (fun === void 0) { fun = function () { }; }
             var key = "key-" + keyCount++ + "-" + +new Date();
             _this.list[key] = fun;
             return {
                 key: key,
                 off: function () {
                     _this.off(key);
-                }
+                },
             };
         };
         // 注册一次执行后关闭
         this.once = function (fn) {
-            if (fn === void 0) { fn = function () { }; }
             var _id = _this.on(function (res) {
                 _id.off();
                 return fn(res);
