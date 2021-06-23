@@ -16,12 +16,18 @@ interface Props {
    * 默认: true
    */
   isAutoStart?: boolean;
+  /**
+   * 是否立刻执行一次
+   * 默认: true
+   */
+  fireImmediately?: boolean;
 }
 export default class {
   props = {
     duration: 60 * 1000,
     rate: 1000,
     isAutoStart: true,
+    fireImmediately: true,
   };
   private _timeProxy = { time: 0, timeI: 0 };
   private _onTick = new Monitor();
@@ -58,10 +64,10 @@ export default class {
    * 开始
    */
   start() {
-    const { rate } = this.props;
+    const { rate, fireImmediately } = this.props;
     this.stop();
     this._timeProxy.timeI = setInterval(this._calculation, rate);
-    this._calculation();
+    if (fireImmediately) this._calculation();
   }
   /**
    * 暂停

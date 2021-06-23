@@ -7,6 +7,7 @@ var default_1 = /** @class */ (function () {
             duration: 60 * 1000,
             rate: 1000,
             isAutoStart: true,
+            fireImmediately: true,
         };
         this._timeProxy = { time: 0, timeI: 0 };
         this._onTick = new Monitor();
@@ -56,10 +57,11 @@ var default_1 = /** @class */ (function () {
      * 开始
      */
     default_1.prototype.start = function () {
-        var rate = this.props.rate;
+        var _a = this.props, rate = _a.rate, fireImmediately = _a.fireImmediately;
         this.stop();
         this._timeProxy.timeI = setInterval(this._calculation, rate);
-        this._calculation();
+        if (fireImmediately)
+            this._calculation();
     };
     /**
      * 暂停

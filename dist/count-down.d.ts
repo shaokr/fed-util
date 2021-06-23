@@ -14,12 +14,18 @@ interface Props {
      * 默认: true
      */
     isAutoStart?: boolean;
+    /**
+     * 是否立刻执行一次
+     * 默认: true
+     */
+    fireImmediately?: boolean;
 }
 export default class {
     props: {
         duration: number;
         rate: number;
         isAutoStart: boolean;
+        fireImmediately: boolean;
     };
     private _timeProxy;
     private _onTick;
