@@ -70,6 +70,6 @@ export default class {
         key: string;
         off: () => void;
     };
-    setProps: (props: any) => void;
+    setProps: (props: Props) => void;
 }
 export {};
