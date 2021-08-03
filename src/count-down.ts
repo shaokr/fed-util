@@ -87,7 +87,10 @@ export default class {
    * 重置
    */
   reset() {
-    this._timeProxy.time = this.props.duration;
+    this.stop()
+    const { rate, duration } = this.props;
+    this._timeProxy.time = duration;
+    this._timeProxy.timeI = setInterval(this._calculation, rate);
   }
   /**
    * 获取剩余时间
@@ -105,4 +108,8 @@ export default class {
    * 完成
    */
   onComplete = this._onComplete.on;
+  setProps = (props) => {
+    _.assign(this.props, props)
+    this.reset()
+  }
 }

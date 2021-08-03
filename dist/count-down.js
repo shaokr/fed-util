@@ -37,6 +37,10 @@ var default_1 = /** @class */ (function () {
          * 完成
          */
         this.onComplete = this._onComplete.on;
+        this.setProps = function (props) {
+            _.assign(_this.props, props);
+            _this.reset();
+        };
         _.assign(this.props, props);
         this.reset();
         if (this.props.isAutoStart) {
@@ -81,7 +85,10 @@ var default_1 = /** @class */ (function () {
      * 重置
      */
     default_1.prototype.reset = function () {
-        this._timeProxy.time = this.props.duration;
+        this.stop();
+        var _a = this.props, rate = _a.rate, duration = _a.duration;
+        this._timeProxy.time = duration;
+        this._timeProxy.timeI = setInterval(this._calculation, rate);
     };
     /**
      * 获取剩余时间
