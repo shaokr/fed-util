@@ -2,12 +2,12 @@ import _ from "lodash";
 import Monitor from "./monitor";
 interface Props {
   /**
-   * 结束时间(ms)
+   * 结束时间(ms) 0 为正向无限计时
    * 默认: 60000
    */
   duration?: number;
   /**
-   * 频率(ms) 0 为正向无限计时
+   * 频率(ms)
    * 默认: 1000
    */
   rate?: number;
